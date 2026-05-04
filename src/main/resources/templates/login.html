@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar sesión</title>
+</head>
+<body>
+<h1>Inicio de sesión</h1>
+<p th:if="${param.logout}">La sesión se cerró correctamente.</p>
+<p th:if="${registroExitoso}">Usuario registrado. Ya puedes iniciar sesión.</p>
+<form th:action="@{/login}" method="post">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    <label>Correo</label>
+    <input type="email" name="username" />
+    <label>Contraseña</label>
+    <input type="password" name="password" />
+    <button type="submit">Entrar</button>
+</form>
+<a th:href="@{/register}">Registrarse</a>
+</body>
+</html>

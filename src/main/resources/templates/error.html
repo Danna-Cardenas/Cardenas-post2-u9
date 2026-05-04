@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+        .error-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 500px;
+        }
+        h1 {
+            color: #e74c3c;
+            font-size: 48px;
+            margin: 0 0 20px 0;
+        }
+        p {
+            color: #555;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1 th:text="${status ?: 'Error'}">Error</h1>
+        <p th:text="${message ?: 'Ha ocurrido un error en el servidor'}">Mensaje de error</p>
+        <p th:if="${error}" th:text="${error}"></p>
+        <a href="/">Volver al inicio</a>
+    </div>
+</body>
+</html>
